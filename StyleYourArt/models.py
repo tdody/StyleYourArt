@@ -8,17 +8,18 @@ Module used to train our model and make predictions.
 import time, os, re, csv, sys, uuid, joblib, gc, math
 
 try:
-    from StyleYourArt.dataloader import *
-    from StyleYourArt.tools import *
+    import StyleYourArt.dataloader
+    import StyleYourArt.tools
     from StyleYourArt.logger import update_train_log
-    from StyleYourArt.lr_finder import *
+    import StyleYourArt.lr_finder
 except:
-    from dataloader import *
-    from tools import *
+    import dataloader
+    import tools
     from logger import update_train_log
-    from lr_finder import *
+    import lr_finder
 
 import pandas as pd
+import numpy as np
 
 from tqdm import tqdm
 from PIL import Image
@@ -138,15 +139,15 @@ def get_weight_path(tag):
         full path containing the model weights
     '''
     if tag == "ResNet50":
-        path = "../models/weights/resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5"
+        path = "./models/weights/resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5"
     elif tag == "InceptionV3":
-        path = "../models/weights/inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5"
+        path = "./models/weights/inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5"
     elif tag == "MobileNetV2":
-        path = "../models/weights/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_1_0_224_no_top.h5"
+        path = "./models/weights/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_1_0_224_no_top.h5"
     elif tag == "Xception":
-        path = "../models/weights/xception_weights_tf_dim_ordering_tf_kernels_notop.h5"
+        path = "./models/weights/xception_weights_tf_dim_ordering_tf_kernels_notop.h5"
     elif tag == "VGG16":
-        path = "../models/weights/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5"
+        path = "./models/weights/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5"
     else:
         path = ""
     return path
@@ -722,7 +723,7 @@ def find_best_lr(data_dir, optimizer_name, base_model_tag, min_lr=1e-5, max_lr=1
     return lr_finder
 
 
-def load_models(version, tag, model_dir=None, from_notebook=False):
+def load_my_models(version, tag, model_dir=None, from_notebook=False):
     """    
     Load models (base and top).
 
@@ -737,11 +738,11 @@ def load_models(version, tag, model_dir=None, from_notebook=False):
         relative = ".."
         weight_path = ".." + weight_path
     else:
-        relative = ".."
+        relative = "."
 
     ## if data path not specified, use generic
     if not model_dir:
-        model_dir = os.path.join(relative,"models", version)
+        model_dir = os.path.join(relative,"models", version.replace(".", "_"))
 
     ## check if model exists
     if not os.path.isfile(os.path.join(model_dir, "my_model_18.h5")):
@@ -797,7 +798,7 @@ def make_prediction(base_model, top_model, image, filename):
     ax.set_xlim(0, predictions[0].max()+0.15)
     ax.axes.xaxis.set_visible(False)
     plt.tight_layout()
-    plt.savefig("./static/prediction/prediction_{}.png".format(filename), dpi=150)
+    plt.savefig("./app/static/prediction/prediction_{}.png".format(filename), dpi=150)
     return predicted_class
 
 if __name__ == "__main__":

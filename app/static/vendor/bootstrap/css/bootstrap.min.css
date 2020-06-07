@@ -6161,13 +6161,21 @@ button.close {
 }
 
 .carousel {
-    position: relative
+    position: relative;
+    margin: 1%;
+    width: 100%;
 }
 
 .carousel-inner {
     position: relative;
-    width: 100%;
+    width: 70%;
     overflow: hidden
+}
+
+.carousel-inner>.item>img,
+.carousel-inner>.item>a>img {
+    width: 70%;
+    margin: auto;
 }
 
 .carousel-item {
@@ -6177,9 +6185,9 @@ button.close {
     -ms-flex-align: center;
     align-items: center;
     width: 100%;
-    transition: -webkit-transform .6s ease;
-    transition: transform .6s ease;
-    transition: transform .6s ease, -webkit-transform .6s ease;
+    transition: -webkit-transform .7s ease;
+    transition: transform .7s ease;
+    transition: transform .7s ease, -webkit-transform .7s ease;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -webkit-perspective: 1000px;

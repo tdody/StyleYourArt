@@ -1,16 +1,21 @@
-import os
-
+import os, sys
 from flask import Flask, render_template, request, redirect, flash, redirect, url_for
 from flask_dropzone import Dropzone
 from werkzeug.utils import secure_filename
+
+from app import app
+import pymongo
+import secrets as sec
+import StyleYourArt
+
 from PIL import Image
 import numpy as np
-import argparse
-from models import *
+
+BASE_MODEL, TOP_MODEL = StyleYourArt.models.load_my_models(StyleYourArt.models.MODEL_VERSION, StyleYourArt.models.MODEL_BASE_TAG)
+
 
 ## create flask app
 basedir = os.path.abspath(os.path.dirname(__file__))
-app = Flask(__name__)
 app.config.update(
     UPLOADED_PATH=os.path.join(basedir, 'uploads'),
     # Flask-Dropzone config:
@@ -27,9 +32,9 @@ dropzone = Dropzone(app)
 ## valid extensions checked before upload
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
-UPLOAD_FOLDER = 'static/uploads/'
-STYLE_FOLDER = 'static/styles'
-PREDICTION_FOLDER = 'static/prediction'
+UPLOAD_FOLDER = 'app/static/uploads/'
+STYLE_FOLDER = 'app/static/styles'
+PREDICTION_FOLDER = 'app/static/prediction'
 
 app.secret_key = "secret key"
 
@@ -37,9 +42,6 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['STYLE_FOLDER'] = STYLE_FOLDER
 app.config['PREDICTION_FOLDER'] = PREDICTION_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
-
-BASE_MODEL = None
-TOP_MODEL = None
 
 ## check if file is allowed
 def allowed_file(filename):
@@ -95,7 +97,7 @@ def predict():
 
             ## make predictions
             image = Image.open(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            predicted_class = make_prediction(BASE_MODEL, TOP_MODEL, image, filename[:-4])
+            predicted_class = StyleYourArt.models.make_prediction(BASE_MODEL, TOP_MODEL, image, filename[:-4])
 
             ## display text
             style_name = predicted_class
@@ -133,18 +135,3 @@ def model():
 @app.route('/chronology')
 def chronology():
     return render_template('chronology.html')  
-
-if __name__ == "__main__":
-    BASE_MODEL, TOP_MODEL = load_models(MODEL_VERSION, MODEL_BASE_TAG)
-
-    ## parse arguments for debug mode
-    ap = argparse.ArgumentParser()
-    ap.add_argument("-d", "--debug", action="store_true", help="debug flask")
-    args = vars(ap.parse_args())
-
-    app.run(debug=True, port=8080, threaded=False)
-
-    #if args["debug"]:
-    #    app.run(debug=True, port=8080)
-    #else:
-    #   app.run(host='0.0.0.0', threaded=True ,port=8080)
