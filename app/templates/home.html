@@ -1,0 +1,46 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="mt-5">Machine Learning and Art Styles</h1>
+{{ dropzone.create(action='upload') }}
+<p>
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+</p>
+
+{% if filename %}
+<div>
+    <table style="width:100%" class="noborder">
+        <colgroup>
+            <col span="1" style="width: 30%;">
+        </colgroup>
+        <tbody>
+            <tr class="noborder" align="center" valign="top">
+                <td class="noborder" style="text-align:center">
+                    <br>
+                    <br>
+                    <img src="{{ url_for('display_image', filename=filename) }}" style="max-width: 400px;">
+                    <figcaption><i>{{ filename }}</i></figcaption>
+                </td>
+                <td class="noborder" style="text-align:center">
+                    <br>
+                    <img src="{{ url_for('display_plot', filename=plot) }}" style="max-height: 600px;">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table style="width:100%" class="noborder">
+        <tbody>
+            <tr class="noborder">
+                <td class="noborder">
+                    <h5>{{ style_name }}</h5>
+                    {{ style_description }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endif %}{{ dropzone.load_js() }} {{ dropzone.config() }} {% endblock %}

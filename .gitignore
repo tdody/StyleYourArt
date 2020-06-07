@@ -1,0 +1,24 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.json
+/env/
+/data/images/*
+/data/classes/*
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+.vscode
+
+data/*
+models/0.*
+models/1.*
+models/1.d.*
+models/2_d_*
+models/2_d/checkpoints
+
+models/bottlenecks
+models/weights/inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5
+models/weights/resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5
+models/weights/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5
+models/weights/xception_weights_tf_dim_ordering_tf_kernels_notop.h5
