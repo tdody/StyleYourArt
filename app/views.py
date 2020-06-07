@@ -12,7 +12,7 @@ from PIL import Image
 import numpy as np
 
 BASE_MODEL, TOP_MODEL = StyleYourArt.models.load_my_models(StyleYourArt.models.MODEL_VERSION, StyleYourArt.models.MODEL_BASE_TAG)
-
+db = StyleYourArt.database.DB()
 
 ## create flask app
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -99,6 +99,16 @@ def predict():
             image = Image.open(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             predicted_class = StyleYourArt.models.make_prediction(BASE_MODEL, TOP_MODEL, image, filename[:-4])
 
+            print('\n\n\n')
+            print(predicted_class)
+
+
+            ## get 15 paintings of same style
+            samples = db.get_painting_for_style(predicted_class, 15)
+            
+            print(type(samples))
+
+
             ## display text
             style_name = predicted_class
             style_text_file = style_name.replace(" ", "_").replace("-", "_")
@@ -106,7 +116,7 @@ def predict():
             with open(os.path.join(app.config['STYLE_FOLDER'], style_text_file), 'r') as file:
                 style_description = file.read()
             plot = 'prediction_{}.png'.format(filename[:-4])
-            return render_template('home.html', filename=filename, style_name=style_name, style_description=style_description, plot=plot)
+            return render_template('home.html', filename=filename, style_name=style_name, style_description=style_description, plot=plot, samples=samples)
         else:
             return render_template('home.html')
     

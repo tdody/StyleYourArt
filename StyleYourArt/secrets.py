@@ -1,4 +1,4 @@
 ## MongoDB
 mongouser = "admin"
-mongopwd = "ing2_PAINTINGS_2017@1"
+mongopwd = "7gtqcwWz2kjp90Fl"
 mongohost = "artstyles-lyahb"
