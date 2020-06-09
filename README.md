@@ -3,9 +3,9 @@
 ## Objectives
 
 The goals of this project are defined as follows:
-1. Build an image classified to identify the style of a painting.
+1. Build an image classifier to identify the style of a painting.
 2. The final product must be web-based and allow the users their own pictures.
-3. The final API will also includes logs (training and prediction) to ensure continuous monitoring of the project.
+3. The final API will present the results of the prediction (plot) and suggest additional information to the user (similar paintings, famous artists)
 
 ## Data
 
@@ -16,14 +16,14 @@ The goals of this project are defined as follows:
 The data is retrieved using a web scrapper from [Lucas David](https://github.com/lucasdavid/wikiart).
 The content scrapper retrieves all the available information hosted on [WikiArt](https://www.wikiart.org/).
 
-## Process the Data
+## App Architecture
+
+<figure>
+    <img src="./static/Architecture.png">
+</figure>
 
 ## Model
 
-### Architecture
 
-### Performance
 
-### Logs
-
-## API
+## Performance
