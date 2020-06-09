@@ -25,4 +25,4 @@ models/weights/xception_weights_tf_dim_ordering_tf_kernels_notop.h5
 
 TODO
 notebooks/UpdateDB.ipynb
-notebools/backup.csv
+notebooks/backup.csv
