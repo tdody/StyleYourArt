@@ -1,5 +1,5 @@
 <figure>
-    <img src="./static/oil-paint-banner.jpg" style="height:300px">
+    <img src="https://github.com/tdody/StyleYourArt/blob/master/app/static/oil-paint-banner.jpg" style="height:300px">
 </figure>
 
 ## Objectives
