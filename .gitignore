@@ -22,3 +22,7 @@ models/weights/inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5
 models/weights/resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5
 models/weights/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5
 models/weights/xception_weights_tf_dim_ordering_tf_kernels_notop.h5
+
+TODO
+notebooks/UpdateDB.ipynb
+notebools/backup.csv
