@@ -47,7 +47,7 @@ Our top model consists of the following layers:
 ### Training Results
 
 <figure>
-    <img src="https://github.com/tdody/StyleYourArt/blob/master/app/static/2_d/history.png">
+    <img src="https://github.com/tdody/StyleYourArt/blob/master/app/static/2_d/history.png" style="height:500px">
 </figure>
 
 ### Prediction Results
@@ -56,12 +56,12 @@ Our top model consists of the following layers:
     <tr>
         <td>
             <figure>
-                <img src="./static/2_d/Train_Set_AUC_ROC.png" style="width:600px;">
+                <img src="https://github.com/tdody/StyleYourArt/blob/master/app/static/2_d/Train_Set_AUC_ROC.png">
             </figure>
         </td>
         <td>
             <figure>
-                <img src="./static/2_d/Test_Set_AUC_ROC.png" style="width:600px;">
+                <img src="https://github.com/tdody/StyleYourArt/blob/master/app/static/2_d/Test_Set_AUC_ROC.png">
             </figure>
         </td>
     </tr>
