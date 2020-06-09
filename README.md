@@ -1,3 +1,7 @@
+<figure>
+    <img src="./static/oil-paint-banner.jpg" style="height:300px">
+</figure>
+
 ## Objectives
 
 The goals of this project are defined as follows:
