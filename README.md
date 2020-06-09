@@ -19,7 +19,7 @@ The content scrapper retrieves all the available information hosted on [WikiArt]
 ## App Architecture
 
 <figure>
-    <img src="./static/Architecture.png">
+    <img src="https://github.com/tdody/StyleYourArt/blob/master/app/static/Architecture.png">
 </figure>
 
 ## Model
