@@ -6,7 +6,7 @@
 
 The goals of this project are defined as follows:
 1. Build an image classifier to identify the style of a painting.
-2. The final product must be web-based and allow the users their own pictures.
+2. The final product must be web-based and allow the users to upload their own pictures.
 3. The final API will present the results of the prediction (plot) and suggest additional information to the user (similar paintings, famous artists)
 
 **The goal is not to archive the best accuracy at all costs. The main objective of this project is instead to go through a full development (data retrieval, EDA, modeling, API).**
