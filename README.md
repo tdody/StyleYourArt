@@ -1,5 +1,3 @@
-# TODO
-
 ## Objectives
 
 The goals of this project are defined as follows:
