@@ -6,7 +6,7 @@
 
 1. Import Modules and Libraries
 2. Import Dataset
-3. Set Directory Structure¶
+3. Set Directory Structure
 4. Data Cleaning
 5. Data Exploration
 
