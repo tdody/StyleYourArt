@@ -99,16 +99,9 @@ def predict():
             image = Image.open(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             predicted_class = StyleYourArt.models.make_prediction(BASE_MODEL, TOP_MODEL, image, filename[:-4])
 
-            print('\n\n\n')
-            print(predicted_class)
-
-
             ## get 15 paintings of same style
             samples = db.get_painting_for_style(predicted_class, 15)
             
-            print(type(samples))
-
-
             ## display text
             style_name = predicted_class
             style_text_file = style_name.replace(" ", "_").replace("-", "_")

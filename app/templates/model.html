@@ -1,3 +1,8 @@
 {% extends "base.html" %} {% block content %}
 <h1 class="mt-5">Machine Learning Model</h1>
+<script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.2.10/webcomponents-loader.min.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
+
+<zero-md src="{{ url_for('static', filename='3_Models.md') }}"></zero-md>
+
 {% endblock %}

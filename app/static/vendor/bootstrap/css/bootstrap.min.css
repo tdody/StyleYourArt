@@ -1799,7 +1799,7 @@ pre code {
     width: 100%;
     max-width: 100%;
     margin-bottom: 1rem;
-    background-color: transparent
+    background-color: transparent;
 }
 
 .table td,
@@ -1828,17 +1828,20 @@ pre code {
 }
 
 .table-bordered {
-    border: 1px solid #dee2e6
+    border: 1px solid #dee2e6;
+    padding: 10px;
 }
 
 .table-bordered td,
 .table-bordered th {
-    border: 1px solid #dee2e6
+    border: 1px solid #dee2e6;
+    padding: 10px;
 }
 
 .table-bordered thead td,
 .table-bordered thead th {
-    border-bottom-width: 2px
+    border-bottom-width: 2px;
+    padding: 10px;
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
@@ -6168,13 +6171,11 @@ button.close {
 
 .carousel-inner {
     position: relative;
-    width: 70%;
     overflow: hidden
 }
 
 .carousel-inner>.item>img,
 .carousel-inner>.item>a>img {
-    width: 70%;
     margin: auto;
 }
 
@@ -6184,7 +6185,6 @@ button.close {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    width: 100%;
     transition: -webkit-transform .7s ease;
     transition: transform .7s ease;
     transition: transform .7s ease, -webkit-transform .7s ease;
@@ -6367,7 +6367,8 @@ button.close {
     padding-top: 20px;
     padding-bottom: 20px;
     color: #fff;
-    text-align: center
+    text-align: center;
+    text-shadow: -3px 4px 10px rgba(0, 0, 0)
 }
 
 .align-baseline {
@@ -9298,7 +9299,7 @@ a.text-dark:hover {
         border: 1px solid #000
     }
     .table {
-        border-collapse: collapse!important
+        border-collapse: collapse!important;
     }
     .table td,
     .table th {
