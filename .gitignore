@@ -5,6 +5,8 @@ __pycache__/
 /data/images/*
 /data/classes/*
 
+StyleYourArt/secrets.py
+
 # Jupyter Notebook
 .ipynb_checkpoints
 
