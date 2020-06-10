@@ -101,6 +101,13 @@ def predict():
 
             ## get 15 paintings of same style
             samples = db.get_painting_for_style(predicted_class, 15)
+
+            ## get 3 most prolific artist
+            artists = db.get_most_prolific_artists(predicted_class)
+
+            for artist in artists:
+                artist['_id']['artist_name'] = artist['_id']['artist_name'].strip()
+            print(artists)
             
             ## display text
             style_name = predicted_class
@@ -109,7 +116,7 @@ def predict():
             with open(os.path.join(app.config['STYLE_FOLDER'], style_text_file), 'r') as file:
                 style_description = file.read()
             plot = 'prediction_{}.png'.format(filename[:-4])
-            return render_template('home.html', filename=filename, style_name=style_name, style_description=style_description, plot=plot, samples=samples)
+            return render_template('home.html', filename=filename, style_name=style_name, style_description=style_description, plot=plot, samples=samples, artists=artists)
         else:
             return render_template('home.html')
     

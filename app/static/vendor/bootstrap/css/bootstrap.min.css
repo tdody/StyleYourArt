@@ -6167,6 +6167,7 @@ button.close {
     position: relative;
     margin: 1%;
     width: 100%;
+    background-color: #171a1d;
 }
 
 .carousel-inner {
@@ -6197,7 +6198,7 @@ button.close {
 .carousel-item-next,
 .carousel-item-prev,
 .carousel-item.active {
-    display: block
+    display: block;
 }
 
 .carousel-item-next,
@@ -6331,7 +6332,7 @@ button.close {
     margin-right: 3px;
     margin-left: 3px;
     text-indent: -999px;
-    background-color: rgba(255, 255, 255, .5)
+    background-color: rgba(0, 0, 0, .5)
 }
 
 .carousel-indicators li::before {

@@ -37,16 +37,18 @@
         <tbody>
             <tr class="noborder">
                 <td class="noborder">
-                    <h5>{{ style_name }}</h5>
-                    {{ style_description }}
-                    <br><br>
+                    <h3>{{ style_name }}</h3>
+                    {{ style_description }}<br> {% if artists %}
+                    <h3>Most prolific artists:
+                    </h3>{% for artist in artists %} {{ artist._id.artist_name }}{% if loop.index
+                    <3 %}, {% endif %} {% endfor %} {% endif %} <br><br>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
 
-<h5>Artwork from the same style:</h5>
+<h3>Artwork from the same style:</h3>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">

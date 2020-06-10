@@ -90,6 +90,53 @@ class DB:
         results = list(self.paintings.aggregate(pipeline))
         return results
 
+    def get_most_prolific_artists(self, stylename):
+        '''
+        Return the three artists with the largest number of paintings.
+        
+        Arguments:
+            stylename: string, style name
+        '''
+        ## pipeline
+        pipeline = [
+            {
+                '$project' : {
+                    'artist_name' : 1,
+                    'style' : 1
+                    }
+            },
+            {
+                '$match' : {
+                    'style': stylename,
+                    'artist_name': {
+                        '$ne': 'UNKNOWN'
+                        }
+                    }
+            },
+            {
+                '$group': {
+                    '_id': {
+                        'artist_name': '$artist_name'
+                        },
+                    'count': {
+                        '$sum': 1
+                        }
+                    }
+            },
+            {
+                '$sort': {
+                    'count':-1
+                    }
+            },
+            {
+                '$limit': 3
+            }
+        ]
+
+        ## fetch
+        results = list(self.paintings.aggregate(pipeline))
+        return results
+
     def is_url_image(self, image_url):
         image_formats = ("image/png", "image/jpeg", "image/jpg")
         r = requests.head(image_url)
