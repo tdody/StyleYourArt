@@ -326,7 +326,9 @@ plt.show();
 ```
 
 <figure>
+<p align="center">
     <img src="./static/output_19_0.png">
+    </p>
 </figure>
 
 
@@ -367,7 +369,9 @@ plt.show();
 ```
 
 <figure>
+<p align="center">
     <img src="./static/output_22_0.png">
+    </p>
 </figure>
 
 
@@ -535,7 +539,9 @@ plt.show();
 ```
 
 <figure>
+<p align="center">
     <img src="./static/output_27_0.png">
+    </p>
 </figure>
 
 
@@ -546,7 +552,9 @@ The MobileNet V2 seems to be the best choice, it scores the highest in term of v
 #### Architecture - MobileNet V2
 
 <figure>
+<p align="center">
     <img src="./static/MobileNetV2.png" style="width:500px;">
+    </p>
 </figure>
 
 - There are 3 layers for both types of blocks.
@@ -555,11 +563,15 @@ The MobileNet V2 seems to be the best choice, it scores the highest in term of v
 - The third layer is another 1×1 convolution but without any non-linearity. It is claimed that if ReLU is used again, the deep networks only have the power of a linear classifier on the non-zero volume part of the output domain.
 
 <figure>
+<p align="center">
     <img src="./static/MobileNetV2_structure.png" style="width:400px;">
+    </p>
 </figure>
 
 <figure>
+<p align="center">
     <img src="./static/MobileNetV2_overall.png" style="width:350px;">
+    </p>
 </figure>
 
 where:
@@ -739,6 +751,8 @@ plt.tight_layout();
 ```
 
 <figure>
+<p align="center">
     <img src="./static/output_45_0.png">
+    </p>
 </figure>
 <br>
