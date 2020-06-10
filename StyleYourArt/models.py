@@ -7,21 +7,12 @@ Module used to train our model and make predictions.
 
 import time, os, re, csv, sys, uuid, joblib, gc, math
 
-try:
-    import StyleYourArt.dataloader
-    import StyleYourArt.tools
-    from StyleYourArt.logger import update_train_log
-    import StyleYourArt.lr_finder
-except:
-    import dataloader
-    import tools
-    from logger import update_train_log
-    import lr_finder
+import StyleYourArt.tools
+from StyleYourArt.logger import update_train_log
+import StyleYourArt.lr_finder
 
 import pandas as pd
 import numpy as np
-
-from tqdm import tqdm
 from PIL import Image
 from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
@@ -40,7 +31,6 @@ from tensorflow.keras.applications.vgg16 import VGG16
 from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2
 from tensorflow.keras.applications.xception import Xception
 from tensorflow.keras.applications.inception_v3 import InceptionV3
-from keras_tqdm import TQDMCallback, TQDMNotebookCallback
 from tensorflow.keras import optimizers
 from tensorflow.keras.callbacks import ModelCheckpoint,ReduceLROnPlateau,CSVLogger,EarlyStopping
 from keras.utils.np_utils import to_categorical  
@@ -252,7 +242,7 @@ def organize_directories(df, class_dir, cap_count=None, test_size=0.2, random_st
         ## loop over each row of the dataframe and move image based on class
         counter = 0
         if verbose: print("... moving images")
-        for index, row in tqdm(X.iterrows(),total=X.shape[0]):
+        for index, row in X.iterrows():
         
             ## check if original image exists
             if not os.path.exists(row['file_loc']):
@@ -479,8 +469,8 @@ def train_model(data_dir, test=False, from_notebook=False, verbose=True, add_con
     ## CALLBACKS
     ## progress
     if from_notebook:
-        callbacks = [TQDMNotebookCallback(leave_outer=True, leave_inner=True)]
-        model_verbose = 0
+        callbacks = []
+        model_verbose = 2
     else:
         callbacks = []
         model_verbose = 2
