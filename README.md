@@ -11,6 +11,8 @@ The goals of this project are defined as follows:
 
 **The goal is not to archive the best accuracy at all costs. The main objective of this project is instead to go through a full development (data retrieval, EDA, modeling, API).**
 
+▶️ [Watch the video on YouTube](https://www.youtube.com/watch?v=ZJSRZ6CiEwM
+
 ## Data
 
 [WikiArt](https://www.wikiart.org/) is our data source. This domain presents both public domain and copyright protected artworks. WikiArt is a very popular source of data for Machine Learning applications. Indeed, data retrieval is relatively easy and existing python libraries have already been developed.
